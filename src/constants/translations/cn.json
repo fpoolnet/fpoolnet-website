@@ -1,0 +1,84 @@
+{
+  "miningInstructions": {
+    "title": "挖矿说明",
+    "miningUrl": "挖矿 URL",
+    "paymentType": "付款方式",
+    "poolFee": "矿池费用",
+    "payoutCondition": "支付条件",
+    "minPayout": "最低支付",
+    "fishingPool": {
+      "title": "钓鱼池",
+      "paymentType": "完整区块奖励",
+      "payoutCondition": "按最后 N 股支付",
+      "minPayout": "无最低（自动）",
+      "enterAddress": "输入您的地址...",
+      "myShares": "我的股份"
+    },
+    "soloPool": {
+      "title": "单人矿池",
+      "paymentType": "完整区块奖励",
+      "payoutCondition": "仅在找到区块时支付",
+      "minPayout": "无最低（自动）"
+    }
+  },
+  "miningConfiguration": {
+    "title": "挖矿配置",
+    "usernameFormat": "用户名格式：",
+    "usernameFormatValue": "您的钱包地址.矿工名",
+    "example": "示例 (ccminer)：",
+    "command": "ccminer -a scrypt -o {{url}} -u 您的钱包地址.矿工名 -p 123"
+  },
+  "paymentInstructions": {
+    "title": "付款说明",
+    "detail": "支付每天下午08:00（UTC时间）自动结算。转账到您的指定支付地址会在结算后四小时内处理。支付每日发生一次且不可逆。",
+    "poolMinersHeader": "对矿池矿工：",
+    "poolMinersDetail": "收入根据提交的股份支付，按矿池的结算规则每日支付。",
+    "soloMinersHeader": "对单人矿工：",
+    "soloMinersDetail": "仅在区块成功发现和确认时支付。没有区块不会产生收入。",
+    "importantHeader": "重要提示：",
+    "importantDetail": "在设置支付地址之前，请仔细验证其正确性和有效性。一旦支付发送，就不能被修改、取消或恢复。"
+  },
+  "faq": {
+    "title": "常见问题",
+    "questions": [
+      {
+        "q": "收入计算频率是多少？",
+        "a": "收入实时计算并根据确认的区块奖励每日结算。"
+      },
+      {
+        "q": "如果我更改支付地址怎么办？",
+        "a": "更改支付地址立即生效。然而，为确保安全，频繁更改可能会触发额外验证。"
+      },
+      {
+        "q": "最低支付金额是多少？",
+        "a": "没有最低支付限制。一旦结算完成，无论金额多少，支付将自动进行。"
+      },
+      {
+        "q": "如果我的挖矿设备离线怎么办？",
+        "a": "如果您的矿工离线，它将停止提交股份。直到矿工重新连接并恢复挖矿之前，不会积累收入。"
+      },
+      {
+        "q": "我能否用同一账户连接多个设备挖矿？",
+        "a": "是的，您可以连接多个挖矿设备到同一账户，以增加算力和潜在奖励。"
+      },
+      {
+        "q": "区块奖励确认需要多长时间？",
+        "a": "区块确认通常需要一定数量的网络确认。区块被区块链网络完全确认后，奖励即被记入。"
+      }
+    ]
+  },
+  "support": {
+    "title": "支持",
+    "detail": "需要帮助？加入 Flokicoin Discord 服务器上的<1>#mining</1>频道，或直接私信我们<1>Fpool</1>。"
+  },
+  "submit": "提交",
+  "pageNotFound": "此页面无法找到",
+  "languages": {
+    "en": "English",
+    "ru": "Русский",
+    "cn": "中文"
+  },
+  "footer": {
+    "title": "Fpool - 挖矿从未如此简单 🐟"
+  }
+}

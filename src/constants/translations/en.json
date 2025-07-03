@@ -1,0 +1,84 @@
+{
+  "miningInstructions": {
+    "title": "Mining Instructions",
+    "miningUrl": "Mining URL",
+    "paymentType": "Payment Type",
+    "poolFee": "Pool Fee",
+    "payoutCondition": "Payout Condition",
+    "minPayout": "Minimum Payout",
+    "fishingPool": {
+      "title": "ishing Pool",
+      "paymentType": "Full Block Reward",
+      "payoutCondition": "Pay-Per-Last-N-Shares",
+      "minPayout": "No minimum (automatic)",
+      "enterAddress": "Enter your address...",
+      "myShares": "My Shares"
+    },
+    "soloPool": {
+      "title": "Solo Pool",
+      "paymentType": "Full Block Reward",
+      "payoutCondition": "Only when a block is found",
+      "minPayout": "No minimum (automatic)"
+    }
+  },
+  "miningConfiguration": {
+    "title": "Mining Configuration",
+    "usernameFormat": "Username Format:",
+    "usernameFormatValue": "YourWalletAddress.WorkerName",
+    "example": "Example (ccminer):",
+    "command": "ccminer -a scrypt -o {{url}} -u YourWalletAddress.WorkerName -p 123"
+  },
+  "paymentInstructions": {
+    "title": "Payment Instructions",
+    "detail": "Payments are automatically settled every day at 08:00 UTC time. Transfers to your designated payout address are processed within four hours after settlement. Payments occur once per day and are irreversible.",
+    "poolMinersHeader": "For Pool Miners: ",
+    "poolMinersDetail": "Earnings are based on submitted shares and are paid daily according to the pool's settlement rules.",
+    "soloMinersHeader": "For Solo Miners: ",
+    "soloMinersDetail": "Payouts are made only when a block is successfully found and confirmed. No earnings are generated without a block.",
+    "importantHeader": "Important: ",
+    "importantDetail": "Before setting your payout address, please carefully verify that it is correct and valid. Once payments are sent, they cannot be modified, canceled, or recovered."
+  },
+  "faq": {
+    "title": "FAQ",
+    "questions": [
+      {
+        "q": "How often are earnings calculated?",
+        "a": "Earnings are calculated in real-time and settled daily based on confirmed block rewards."
+      },
+      {
+        "q": "What happens if I change my payout address?",
+        "a": "Changes to your payout address are effective immediately. However, to ensure security, frequent changes may trigger additional verification."
+      },
+      {
+        "q": "What is the minimum payout amount?",
+        "a": "There is no minimum payout limit. Once settlement is completed, payments are made automatically regardless of the amount."
+      },
+      {
+        "q": "What if my mining device goes offline?",
+        "a": "If your miner goes offline, it will stop submitting shares. No earnings will be accumulated until the miner reconnects and resumes mining."
+      },
+      {
+        "q": "Can I mine with multiple devices using the same account?",
+        "a": "Yes, you can connect multiple mining devices to the same account to increase your hashrate and potential rewards."
+      },
+      {
+        "q": "How long does it take for a block reward to be confirmed?",
+        "a": "Block confirmations typically require a certain number of network confirmations. Rewards are credited once a block is fully confirmed by the blockchain network."
+      }
+    ]
+  },
+  "support": {
+    "title": "Support",
+    "detail": "Need support? Join the <1>#mining</1> channel on the Flokicoin Discord server, or DM us directly at <1>Fpool</1>."
+  },
+  "submit": "Submit",
+  "pageNotFound": "This page could not be found",
+  "languages": {
+    "en": "English",
+    "ru": "Русский",
+    "cn": "中文"
+  },
+  "footer": {
+    "title": "Fpool - Mining has never been so easy 🐟"
+  }
+}
