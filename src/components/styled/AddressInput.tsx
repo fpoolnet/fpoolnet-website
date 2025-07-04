@@ -1,5 +1,6 @@
 import InputBase from '@mui/material/InputBase';
 import { alpha, styled } from '@mui/material/styles';
+import { PRIMARY_BLACK } from '@styles/colors';
 
 export const AddressInput = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -11,7 +12,6 @@ export const AddressInput = styled('div')(({ theme }) => ({
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
     width: 'auto'
   }
 }));
@@ -20,6 +20,7 @@ export const AddressIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 1),
   height: '100%',
   position: 'absolute',
+  zIndex: '100',
   pointerEvents: 'none',
   display: 'flex',
   alignItems: 'center',
@@ -27,15 +28,15 @@ export const AddressIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 export const StyledAddressInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: PRIMARY_BLACK,
+  backgroundColor: '#fff',
   width: '100%',
-  border: `1px solid ${alpha(theme.palette.common.black, 0.23)}`, // added border
-  borderRadius: theme.shape.borderRadius, // optional: add borderRadius if needed
+  border: `1px solid ${alpha(theme.palette.common.black, 0.23)}`,
+  borderRadius: theme.shape.borderRadius,
 
   '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    // optional focus state
+    paddingLeft: '35px',
+    lineHeight: '1',
     '&:focus': {
       borderColor: theme.palette.primary.main
     }

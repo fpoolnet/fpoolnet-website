@@ -19,7 +19,8 @@
       "paymentType": "Full Block Reward",
       "payoutCondition": "Only when a block is found",
       "minPayout": "No minimum (automatic)"
-    }
+    },
+    "note": "** The 1% fee will be fully refunded to your rewards during the promotional period."
   },
   "miningConfiguration": {
     "title": "Mining Configuration",

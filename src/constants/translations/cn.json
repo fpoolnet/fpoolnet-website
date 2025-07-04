@@ -7,7 +7,7 @@
     "payoutCondition": "支付条件",
     "minPayout": "最低支付",
     "fishingPool": {
-      "title": "钓鱼池",
+      "title": "ishing Pool",
       "paymentType": "完整区块奖励",
       "payoutCondition": "按最后 N 股支付",
       "minPayout": "无最低（自动）",
@@ -15,11 +15,12 @@
       "myShares": "我的股份"
     },
     "soloPool": {
-      "title": "单人矿池",
+      "title": "Solo Pool",
       "paymentType": "完整区块奖励",
       "payoutCondition": "仅在找到区块时支付",
       "minPayout": "无最低（自动）"
-    }
+    },
+    "note": "** 在促销期间，1％ 的费用将全额退还到您的奖励中。"
   },
   "miningConfiguration": {
     "title": "挖矿配置",

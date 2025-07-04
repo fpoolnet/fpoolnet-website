@@ -1,24 +1,24 @@
-import { Box, Paper, Card, Button, InputBase } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { PRIMARY_BLUE, SECONDARY_GREY_2, PRIMARY_RED } from '@styles/colors';
 import FlcIcon from '@components/icons/FlcIcon';
-import { useTranslation, Trans } from 'react-i18next';
 import {
-  FISHING_POOL_URL,
-  FISHING_POOL_FEE,
-  SOLO_POOL_URL,
-  SOLO_POOL_FEE
-} from '@constants/config';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import * as Yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import { validateAddress } from '@utils/Utils';
-import {
-  AddressInput,
   AddressIconWrapper,
+  AddressInput,
   StyledAddressInputBase
 } from '@components/styled/AddressInput';
+import {
+  FISHING_POOL_FEE,
+  FISHING_POOL_URL,
+  SOLO_POOL_FEE,
+  SOLO_POOL_URL
+} from '@constants/config';
+import { yupResolver } from '@hookform/resolvers/yup';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import { Box, Button, Card } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { PRIMARY_BLUE, PRIMARY_GREY, PRIMARY_RED, SECONDARY_GREY_2 } from '@styles/colors';
+import { validateAddress } from '@utils/Utils';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { Trans, useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 
 const StyledCard = styled(Card)(() => ({
   borderRadius: 8,
@@ -27,8 +27,10 @@ const StyledCard = styled(Card)(() => ({
   marginBottom: 20
 }));
 
-const StyledPaper = styled(Paper)(() => ({
-  borderRadius: 2
+const StyledCardBlock = styled(Card)(() => ({
+  borderRadius: 8,
+  border: '1px solid #ddd',
+  boxShadow: 'unset'
 }));
 
 const StyledBox = styled(Box)(() => ({
@@ -37,8 +39,8 @@ const StyledBox = styled(Box)(() => ({
   fontWeight: 'bold',
   color: PRIMARY_BLUE,
   backgroundColor: SECONDARY_GREY_2,
-  padding: '0 16px',
-  height: 70,
+  padding: '0 15px',
+  minHeight: 70,
   fontSize: '1.2rem'
 }));
 
@@ -109,9 +111,11 @@ const MiningPage = () => {
                 flexBasis: { xs: '100%', md: '50%' },
                 p: 1
               }}>
-              <StyledPaper>
+              <StyledCardBlock>
                 <StyledBox>
-                  <FlcIcon sx={{ width: 25, height: 50 }} />
+                  <FlcIcon
+                    sx={{ height: '21px', width: '15px', marginRight: '3px', marginBottom: '5px' }}
+                  />
                   {t('miningInstructions.fishingPool.title')}
                 </StyledBox>
                 <Box sx={{ padding: 1 }}>
@@ -142,30 +146,37 @@ const MiningPage = () => {
                     <Box textAlign="right">{t('miningInstructions.fishingPool.minPayout')}</Box>
                   </InfoRow>
                 </Box>
-              </StyledPaper>
-
-              <StyledPaper sx={{ p: 2, mt: 2, textAlign: 'center' }}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <AddressInput>
-                    <AddressIconWrapper>
-                      <AccountBalanceWalletIcon />
-                    </AddressIconWrapper>
-                    <StyledAddressInputBase
-                      placeholder={t('miningInstructions.fishingPool.enterAddress')}
-                      {...register('address')}
-                      autoComplete="off"
-                    />
-                  </AddressInput>
-                  {errors.address && <p style={{ color: PRIMARY_RED }}>{errors.address.message}</p>}
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    disabled={!!errors.address}
-                    sx={{ mt: 1 }}>
-                    {t('miningInstructions.fishingPool.myShares')}
-                  </Button>
-                </form>
-              </StyledPaper>
+                <StyledBox>
+                  <Box
+                    component="form"
+                    onSubmit={handleSubmit(onSubmit)}
+                    sx={{ padding: '20px 0px', width: '100%' }}>
+                    <AddressInput>
+                      <AddressIconWrapper>
+                        <AccountBalanceWalletIcon />
+                      </AddressIconWrapper>
+                      <StyledAddressInputBase
+                        placeholder={t('miningInstructions.fishingPool.enterAddress')}
+                        {...register('address')}
+                        autoComplete="off"
+                      />
+                    </AddressInput>
+                    {errors.address && (
+                      <Box sx={{ color: PRIMARY_RED, fontSize: '0.9rem', padding: 1 }}>
+                        {errors.address.message}
+                      </Box>
+                    )}
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      size="small"
+                      disabled={!!errors.address}
+                      sx={{ mt: 1, width: '100%', backgroundColor: PRIMARY_BLUE }}>
+                      {t('miningInstructions.fishingPool.myShares')}
+                    </Button>
+                  </Box>
+                </StyledBox>
+              </StyledCardBlock>
             </Box>
 
             {/* Solo Pool */}
@@ -176,7 +187,7 @@ const MiningPage = () => {
                 flexBasis: { xs: '100%', md: '50%' },
                 p: 1
               }}>
-              <StyledPaper>
+              <StyledCardBlock>
                 <StyledBox>{t('miningInstructions.soloPool.title')}</StyledBox>
                 <Box sx={{ padding: 1 }}>
                   <InfoRow>
@@ -204,8 +215,11 @@ const MiningPage = () => {
                     <Box textAlign="right">{t('miningInstructions.soloPool.minPayout')}</Box>
                   </InfoRow>
                 </Box>
-              </StyledPaper>
+              </StyledCardBlock>
             </Box>
+          </Box>
+          <Box sx={{ fontSize: '0.9em', color: PRIMARY_GREY, padding: 1 }}>
+            {t('miningInstructions.note')}
           </Box>
         </Box>
       </StyledCard>
