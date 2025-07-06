@@ -102,7 +102,7 @@ const MiningPage = () => {
   });
 
   const onSubmit: SubmitHandler<ConnectFormData> = (data) => {
-    window.location.href = `https://shares.fpool.net/address/${data.address}`;
+    window.open(`https://shares.fpool.net/address/${data.address}`, '_blank');
   };
 
   const faqItems = t('faq.questions', { returnObjects: true }) as any[];
@@ -149,7 +149,7 @@ const MiningPage = () => {
                     </InfoRow>
                   ))}
                 </Box>
-                <StyledBox>
+                <StyledBox sx={{ backgroundColor: '#f8f9fa' }}>
                   <Box
                     component="form"
                     onSubmit={handleSubmit(onSubmit)}
@@ -174,7 +174,7 @@ const MiningPage = () => {
                       variant="contained"
                       size="small"
                       disabled={!!errors.address}
-                      sx={{ mt: 1, width: '100%', backgroundColor: PRIMARY_BLUE }}>
+                      sx={{ mt: 1, width: '100%', backgroundColor: '#007bff' }}>
                       {t('miningInstructions.fishingPool.myShares')}
                     </Button>
                   </Box>
@@ -242,7 +242,7 @@ const MiningPage = () => {
 
       {/* Payment Instructions */}
       <StyledCard>
-        <Box component="section" sx={{ p: 2 }}>
+        <Box component="section" sx={{ p: 2, color: '#333', lineHeight: 1.6 }}>
           <SectionHeader>{t('paymentInstructions.title')}</SectionHeader>
           <Box component="div">{t('paymentInstructions.summary')}</Box>
 
