@@ -1,26 +1,27 @@
 {
   "miningInstructions": {
     "title": "挖矿说明",
-    "miningUrl": "挖矿 URL",
-    "paymentType": "付款方式",
-    "poolFee": "矿池费用",
-    "payoutCondition": "支付条件",
-    "minPayout": "最低支付",
     "fishingPool": {
       "title": "ishing Pool",
-      "paymentType": "完整区块奖励",
-      "payoutCondition": "按最后 N 股支付",
-      "minPayout": "无最低（自动）",
+      "items": [
+        { "label": "挖矿网址", "value": "{{url}}" },
+        { "label": "支付类型", "value": "完整区块奖励" },
+        { "label": "支付条件", "value": "按最后N份股权支付" },
+        { "label": "最低支付", "value": "无最低（自动）" }
+      ],
       "enterAddress": "输入您的地址...",
       "myShares": "我的股份"
     },
     "soloPool": {
       "title": "Solo Pool",
-      "paymentType": "完整区块奖励",
-      "payoutCondition": "仅在找到区块时支付",
-      "minPayout": "无最低（自动）"
+      "items": [
+        { "label": "挖矿网址", "value": "{{url}}" },
+        { "label": "支付类型", "value": "完整区块奖励" },
+        { "label": "支付条件", "value": "只有当找到区块时" },
+        { "label": "最低支付", "value": "无最低（自动）" }
+      ]
     },
-    "note": "** 在促销期间，1％ 的费用将全额退还到您的奖励中。"
+    "note": "** 1％的费用将在促销期间全额返还到您的奖励。"
   },
   "miningConfiguration": {
     "title": "挖矿配置",
@@ -30,14 +31,22 @@
     "command": "ccminer -a scrypt -o {{url}} -u 您的钱包地址.矿工名 -p 123"
   },
   "paymentInstructions": {
-    "title": "付款说明",
-    "detail": "支付每天下午08:00（UTC时间）自动结算。转账到您的指定支付地址会在结算后四小时内处理。支付每日发生一次且不可逆。",
-    "poolMinersHeader": "对矿池矿工：",
-    "poolMinersDetail": "收入根据提交的股份支付，按矿池的结算规则每日支付。",
-    "soloMinersHeader": "对单人矿工：",
-    "soloMinersDetail": "仅在区块成功发现和确认时支付。没有区块不会产生收入。",
-    "importantHeader": "重要提示：",
-    "importantDetail": "在设置支付地址之前，请仔细验证其正确性和有效性。一旦支付发送，就不能被修改、取消或恢复。"
+    "title": "支付说明",
+    "summary": "付款每天在 08:00 UTC 时间自动结算。转账至您指定的支付地址会在结算后的四小时内处理。支付每天进行一次且不可撤销。",
+    "items": [
+      {
+        "label": "针对矿池矿工：",
+        "value": "收入基于提交的股份，并根据矿池的结算规则每日支付。"
+      },
+      {
+        "label": "针对独立矿工：",
+        "value": "只有在成功找到并确认区块时才会进行支付。不生成区块则无收入。"
+      },
+      {
+        "label": "重要：",
+        "value": "在设置您的支付地址之前，请仔细核实其正确性和有效性。一旦付款发送，它们无法被修改、取消或恢复。"
+      }
+    ]
   },
   "faq": {
     "title": "常见问题",

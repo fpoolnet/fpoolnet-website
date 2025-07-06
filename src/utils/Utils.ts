@@ -1,5 +1,5 @@
-
 import { address, networks } from 'flokicoinjs-lib';
+
 export const isMobileDevice = (): boolean => {
   const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
   return (
@@ -14,21 +14,9 @@ export const isMobileDevice = (): boolean => {
   );
 };
 
-
-export const validateAddress = (addr: string, network?: string) => {
+export const validateAddress = (addr: string) => {
   try {
-    let currentNet;
-    switch (network) {
-      case 'testnet':
-        currentNet = networks.testnet;
-        break;
-      case 'regtest':
-        currentNet = networks.regtest;
-        break;
-      default:
-        currentNet = networks.bitcoin;
-        break;
-    }
+    address.toOutputScript(addr, networks.bitcoin);
     return true;
   } catch (err) {
     return false;

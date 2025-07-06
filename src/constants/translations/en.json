@@ -1,24 +1,25 @@
 {
   "miningInstructions": {
     "title": "Mining Instructions",
-    "miningUrl": "Mining URL",
-    "paymentType": "Payment Type",
-    "poolFee": "Pool Fee",
-    "payoutCondition": "Payout Condition",
-    "minPayout": "Minimum Payout",
     "fishingPool": {
       "title": "ishing Pool",
-      "paymentType": "Full Block Reward",
-      "payoutCondition": "Pay-Per-Last-N-Shares",
-      "minPayout": "No minimum (automatic)",
+      "items": [
+        { "label": "Mining URL", "value": "{{url}}" },
+        { "label": "Payment Type", "value": "Full Block Reward" },
+        { "label": "Payout Condition", "value": "Pay-Per-Last-N-Shares" },
+        { "label": "Minimum Payout", "value": "No minimum (automatic)" }
+      ],
       "enterAddress": "Enter your address...",
       "myShares": "My Shares"
     },
     "soloPool": {
       "title": "Solo Pool",
-      "paymentType": "Full Block Reward",
-      "payoutCondition": "Only when a block is found",
-      "minPayout": "No minimum (automatic)"
+      "items": [
+        { "label": "Mining URL", "value": "{{url}}" },
+        { "label": "Payment Type", "value": "Full Block Reward" },
+        { "label": "Payout Condition", "value": "Only when a block is found" },
+        { "label": "Minimum Payout", "value": "No minimum (automatic)" }
+      ]
     },
     "note": "** The 1% fee will be fully refunded to your rewards during the promotional period."
   },
@@ -31,13 +32,21 @@
   },
   "paymentInstructions": {
     "title": "Payment Instructions",
-    "detail": "Payments are automatically settled every day at 08:00 UTC time. Transfers to your designated payout address are processed within four hours after settlement. Payments occur once per day and are irreversible.",
-    "poolMinersHeader": "For Pool Miners: ",
-    "poolMinersDetail": "Earnings are based on submitted shares and are paid daily according to the pool's settlement rules.",
-    "soloMinersHeader": "For Solo Miners: ",
-    "soloMinersDetail": "Payouts are made only when a block is successfully found and confirmed. No earnings are generated without a block.",
-    "importantHeader": "Important: ",
-    "importantDetail": "Before setting your payout address, please carefully verify that it is correct and valid. Once payments are sent, they cannot be modified, canceled, or recovered."
+    "summary": "Payments are automatically settled every day at 08:00 UTC time. Transfers to your designated payout address are processed within four hours after settlement. Payments occur once per day and are irreversible.",
+    "items": [
+      {
+        "label": "For Pool Miners: ",
+        "value": "Earnings are based on submitted shares and are paid daily according to the pool's settlement rules."
+      },
+      {
+        "label": "For Solo Miners: ",
+        "value": "Payouts are made only when a block is successfully found and confirmed. No earnings are generated without a block."
+      },
+      {
+        "label": "Important: ",
+        "value": "Before setting your payout address, please carefully verify that it is correct and valid. Once payments are sent, they cannot be modified, canceled, or recovered."
+      }
+    ]
   },
   "faq": {
     "title": "FAQ",

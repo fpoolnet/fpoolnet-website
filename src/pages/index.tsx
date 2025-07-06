@@ -4,12 +4,7 @@ import {
   AddressInput,
   StyledAddressInputBase
 } from '@components/styled/AddressInput';
-import {
-  FISHING_POOL_FEE,
-  FISHING_POOL_URL,
-  SOLO_POOL_FEE,
-  SOLO_POOL_URL
-} from '@constants/config';
+import { FISHING_POOL_URL, SOLO_POOL_URL } from '@constants/config';
 import { yupResolver } from '@hookform/resolvers/yup';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Box, Button, Card } from '@mui/material';
@@ -61,18 +56,33 @@ const InfoRow = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'noBorder'
 })<InfoRowProps>(({ noBorder }) => ({
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'space-between',
-  flexWrap: 'wrap',
   padding: '10px 5px',
-  borderBottom: noBorder ? 'none' : '1px dashed #eee'
-}));
+  borderBottom: noBorder ? 'none' : '1px dashed #eee',
+  '& > :not(style) ~ :not(style)': {
+    marginTop: '7px'
+  },
 
+  // Existing media query conditions
+  '@media (min-width: 600px)': {
+    flexDirection: 'row',
+    '& > :not(style) ~ :not(style)': {
+      marginTop: '0'
+    }
+  },
+
+  // Ensure label stays on one line
+  '> div:first-of-type': {
+    whiteSpace: 'nowrap'
+  }
+}));
 const validationSchema = Yup.object().shape({
   address: Yup.string()
     .required('Address is required')
     .matches(/^[a-zA-Z0-9]{30,}$/, 'Invalid address format')
     .test('is-valid-address', 'Invalid address', (value) => {
-      return validateAddress(value, 'mainnet');
+      return validateAddress(value);
     })
 });
 
@@ -96,6 +106,19 @@ const MiningPage = () => {
   };
 
   const faqItems = t('faq.questions', { returnObjects: true }) as any[];
+  const fishingPoolItems = t('miningInstructions.fishingPool.items', {
+    returnObjects: true,
+    url: FISHING_POOL_URL
+  }) as any[];
+
+  const soloPoolItems = t('miningInstructions.soloPool.items', {
+    returnObjects: true,
+    url: SOLO_POOL_URL
+  }) as any[];
+
+  const paymentInstructionsItems = t('paymentInstructions.items', {
+    returnObjects: true
+  }) as any[];
 
   return (
     <Box sx={{ maxWidth: '1200px', minWidth: { md: '900px' }, mx: 'auto', py: 1, mb: 3 }}>
@@ -119,32 +142,12 @@ const MiningPage = () => {
                   {t('miningInstructions.fishingPool.title')}
                 </StyledBox>
                 <Box sx={{ padding: 1 }}>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>{t('miningInstructions.miningUrl')}:</Box>
-                    <Box textAlign="right">{FISHING_POOL_URL}</Box>
-                  </InfoRow>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>
-                      {t('miningInstructions.paymentType')}:
-                    </Box>
-                    <Box textAlign="right">{t('miningInstructions.fishingPool.paymentType')}</Box>
-                  </InfoRow>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>{t('miningInstructions.poolFee')}:</Box>
-                    <Box textAlign="right">{FISHING_POOL_FEE}%</Box>
-                  </InfoRow>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>
-                      {t('miningInstructions.payoutCondition')}:
-                    </Box>
-                    <Box textAlign="right">
-                      {t('miningInstructions.fishingPool.payoutCondition')}
-                    </Box>
-                  </InfoRow>
-                  <InfoRow noBorder>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>{t('miningInstructions.minPayout')}:</Box>
-                    <Box textAlign="right">{t('miningInstructions.fishingPool.minPayout')}</Box>
-                  </InfoRow>
+                  {fishingPoolItems.map((item, index) => (
+                    <InfoRow key={index} noBorder={index === fishingPoolItems.length - 1}>
+                      <Box sx={{ mr: 2, fontWeight: 700 }}>{item.label}:</Box>
+                      <Box>{item.value}</Box>
+                    </InfoRow>
+                  ))}
                 </Box>
                 <StyledBox>
                   <Box
@@ -190,30 +193,12 @@ const MiningPage = () => {
               <StyledCardBlock>
                 <StyledBox>{t('miningInstructions.soloPool.title')}</StyledBox>
                 <Box sx={{ padding: 1 }}>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>{t('miningInstructions.miningUrl')}:</Box>
-                    <Box textAlign="right">{SOLO_POOL_URL}</Box>
-                  </InfoRow>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>
-                      {t('miningInstructions.paymentType')}:
-                    </Box>
-                    <Box textAlign="right">{t('miningInstructions.soloPool.paymentType')}</Box>
-                  </InfoRow>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>{t('miningInstructions.poolFee')}:</Box>
-                    <Box textAlign="right">{SOLO_POOL_FEE}%</Box>
-                  </InfoRow>
-                  <InfoRow>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>
-                      {t('miningInstructions.payoutCondition')}:
-                    </Box>
-                    <Box textAlign="right">{t('miningInstructions.soloPool.payoutCondition')}</Box>
-                  </InfoRow>
-                  <InfoRow noBorder>
-                    <Box sx={{ mr: 2, fontWeight: 700 }}>{t('miningInstructions.minPayout')}:</Box>
-                    <Box textAlign="right">{t('miningInstructions.soloPool.minPayout')}</Box>
-                  </InfoRow>
+                  {soloPoolItems.map((item: any, index: number) => (
+                    <InfoRow key={index} noBorder={index === soloPoolItems.length - 1}>
+                      <Box sx={{ mr: 2, fontWeight: 700 }}>{item.label}:</Box>
+                      <Box>{item.value}</Box>
+                    </InfoRow>
+                  ))}
                 </Box>
               </StyledCardBlock>
             </Box>
@@ -259,19 +244,14 @@ const MiningPage = () => {
       <StyledCard>
         <Box component="section" sx={{ p: 2 }}>
           <SectionHeader>{t('paymentInstructions.title')}</SectionHeader>
-          <Box component="div">{t('paymentInstructions.detail')}</Box>
-          <Box component="div" sx={{ mt: 2 }}>
-            <Box component="strong">{t('paymentInstructions.poolMinersHeader')}</Box>
-            {t('paymentInstructions.poolMinersDetail')}
-          </Box>
-          <Box component="div" sx={{ mt: 1 }}>
-            <Box component="strong">{t('paymentInstructions.soloMinersHeader')}</Box>
-            {t('paymentInstructions.soloMinersDetail')}
-          </Box>
-          <Box component="div" sx={{ mt: 1 }}>
-            <Box component="strong">{t('paymentInstructions.importantHeader')}</Box>
-            {t('paymentInstructions.importantDetail')}
-          </Box>
+          <Box component="div">{t('paymentInstructions.summary')}</Box>
+
+          {paymentInstructionsItems.map((item, index) => (
+            <Box component="div" sx={{ mt: 2 }} key={index}>
+              <Box component="strong">{item.label}</Box>
+              {item.value}
+            </Box>
+          ))}
         </Box>
       </StyledCard>
 
