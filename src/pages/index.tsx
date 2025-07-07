@@ -123,7 +123,7 @@ const MiningPage = () => {
   return (
     <Box sx={{ maxWidth: '1200px', minWidth: { md: '900px' }, mx: 'auto', py: 1, mb: 3 }}>
       <StyledCard>
-        <Box component="section" sx={{ py: 2, px: { md: 2 } }}>
+        <Box component="section" sx={{ p: 2 }}>
           <SectionHeader>{t('miningInstructions.title')}</SectionHeader>
           <Box component="div" sx={{ display: 'flex', flexWrap: 'wrap', mb: 3 }}>
             {/* Fishing Pool */}
