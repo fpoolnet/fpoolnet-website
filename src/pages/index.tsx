@@ -121,7 +121,7 @@ const MiningPage = () => {
   }) as any[];
 
   return (
-    <Box sx={{ maxWidth: '1200px', minWidth: { md: '900px' }, mx: 'auto', py: 1, mb: 3 }}>
+    <Box sx={{ mb: 3 }}>
       <StyledCard>
         <Box component="section" sx={{ p: 2 }}>
           <SectionHeader>{t('miningInstructions.title')}</SectionHeader>

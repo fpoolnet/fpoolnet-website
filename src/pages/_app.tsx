@@ -36,10 +36,9 @@ const App = (props: AppProps) => {
 
       <Header />
       <Container
-        maxWidth="md"
         sx={{
           marginTop: '69px',
-          px: { xs: 1, md: 5 },
+          px: { xs: 1, md: 13 },
           py: { xs: 1, md: 1 },
           display: 'flex',
           flexDirection: 'column'

@@ -4,9 +4,11 @@
     "fishingPool": {
       "title": "ishing Pool",
       "items": [
-        { "label": "Mining URL", "value": "{{url}}" },
-        { "label": "Payment Type", "value": "Full Block Reward" },
-        { "label": "Payout Condition", "value": "Pay-Per-Last-N-Shares" },
+       { "label": "Mining URL", "value": "{{url}}" },
+        { "label": "Payment Type", "value": "Proportional Reward" },
+        { "label": "Payout Scheme", "value": "PPLNS (Last 5 Minutes)" },
+        { "label": "Reward Condition", "value": "Recent valid shares" },
+        { "label": "Pool Fee", "value": "1%" },
         { "label": "Minimum Payout", "value": "No minimum (automatic)" }
       ],
       "enterAddress": "Enter your address...",
@@ -17,7 +19,9 @@
       "items": [
         { "label": "Mining URL", "value": "{{url}}" },
         { "label": "Payment Type", "value": "Full Block Reward" },
-        { "label": "Payout Condition", "value": "Only when a block is found" },
+        { "label": "Payout Scheme", "value": "Solo" },
+        { "label": "Reward Condition", "value": "Only if you find a block" },
+        { "label": "Pool Fee", "value": "1%" },
         { "label": "Minimum Payout", "value": "No minimum (automatic)" }
       ]
     },
@@ -32,15 +36,15 @@
   },
   "paymentInstructions": {
     "title": "Payment Instructions",
-    "summary": "Payments are automatically settled every day at 08:00 UTC time. Transfers to your designated payout address are processed within four hours after settlement. Payments occur once per day and are irreversible.",
+    "summary": "Payments are settled automatically every day at 08:00 UTC. Transfers to your payout address are processed within four hours. Payments are final and cannot be reversed.",
     "items": [
       {
-        "label": "For Pool Miners: ",
-        "value": "Earnings are based on submitted shares and are paid daily according to the pool's settlement rules."
+        "label": "Fishing Miners: ",
+        "value": "Earnings are based on valid shares and paid daily after a 300-block maturity (~5 hours)."
       },
       {
-        "label": "For Solo Miners: ",
-        "value": "Payouts are made only when a block is successfully found and confirmed. No earnings are generated without a block."
+        "label": "Solo Miners: ",
+        "value": "You receive full payout instantly when a block is found. No block, no reward."
       },
       {
         "label": "Important: ",
@@ -52,28 +56,32 @@
     "title": "FAQ",
     "questions": [
       {
-        "q": "How often are earnings calculated?",
-        "a": "Earnings are calculated in real-time and settled daily based on confirmed block rewards."
+        "q": "Can I use multiple workers in the Fishing Pool?",
+        "a": "Yes. You can use the same address with different worker names. Each worker name must be unique."
       },
       {
-        "q": "What happens if I change my payout address?",
-        "a": "Changes to your payout address are effective immediately. However, to ensure security, frequent changes may trigger additional verification."
+        "q": "How often are earnings calculated in the Fishing Pool?",
+        "a": "Earnings are calculated in real time based on submitted shares and settled daily after a 300-block maturity (~5 hours)."
       },
       {
-        "q": "What is the minimum payout amount?",
-        "a": "There is no minimum payout limit. Once settlement is completed, payments are made automatically regardless of the amount."
+        "q": "How are rewards handled in the Solo Pool?",
+        "a": "You receive the full block reward immediately after finding and submitting a valid block."
       },
       {
-        "q": "What if my mining device goes offline?",
-        "a": "If your miner goes offline, it will stop submitting shares. No earnings will be accumulated until the miner reconnects and resumes mining."
+        "q": "Can I change my payout address?",
+        "a": "Yes. Changes take effect immediately."
       },
       {
-        "q": "Can I mine with multiple devices using the same account?",
-        "a": "Yes, you can connect multiple mining devices to the same account to increase your hashrate and potential rewards."
+        "q": "Is there a minimum payout amount?",
+        "a": "No. Payouts are automatic regardless of the amount once settlement or block confirmation is complete."
       },
       {
-        "q": "How long does it take for a block reward to be confirmed?",
-        "a": "Block confirmations typically require a certain number of network confirmations. Rewards are credited once a block is fully confirmed by the blockchain network."
+        "q": "What happens if my miner disconnects?",
+        "a": "If your device goes offline, it stops submitting shares or blocks. No rewards are earned until it reconnects."
+      },
+      {
+        "q": "When are rewards confirmed and paid?",
+        "a": "In the Fishing Pool, rewards are paid after 300-block maturity. In the Solo Pool, rewards are paid instantly upon valid block submission."
       }
     ]
   },
