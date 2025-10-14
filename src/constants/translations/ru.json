@@ -32,7 +32,7 @@
     "usernameFormat": "Формат имени пользователя:",
     "usernameFormatValue": "ВашКошелёк.WorkerName",
     "example": "Пример (ccminer):",
-    "command": "ccminer -a scrypt -o {{url}} -u ВашКошелёк.WorkerName -p 123"
+    "command": "ccminer -a scrypt -o {{url}} -u ВашКошелёк.WorkerName -p x"
   },
   "paymentInstructions": {
     "title": "Инструкции по выплатам",
