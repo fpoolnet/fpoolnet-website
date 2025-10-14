@@ -32,7 +32,7 @@
     "usernameFormat": "Username Format:",
     "usernameFormatValue": "YourWalletAddress.WorkerName",
     "example": "Example (ccminer):",
-    "command": "ccminer -a scrypt -o {{url}} -u YourWalletAddress.WorkerName -p x"
+    "command": "ccminer -a scrypt -o {{url}} -u YourWalletAddress.WorkerName -p sxx"
   },
   "paymentInstructions": {
     "title": "Payment Instructions",
