@@ -4,15 +4,15 @@
     "fishingPool": {
       "title": "ishing Pool",
       "items": [
-       { "label": "Mining URL", "value": "{{url}}" },
+        { "label": "Mining URL", "value": "{{url}}" },
         { "label": "Payment Type", "value": "Proportional Reward" },
         { "label": "Payout Scheme", "value": "PPLNS (Last 5 Minutes)" },
-        { "label": "Reward Condition", "value": "Recent valid shares" },
+        { "label": "Reward Condition", "value": "Recent valid sharenotes" },
         { "label": "Pool Fee", "value": "1%" },
         { "label": "Minimum Payout", "value": "No minimum (automatic)" }
       ],
       "enterAddress": "Enter your address...",
-      "myShares": "My Shares"
+      "myShares": "My Hashboard"
     },
     "soloPool": {
       "title": "Solo Pool",
@@ -36,11 +36,11 @@
   },
   "paymentInstructions": {
     "title": "Payment Instructions",
-    "summary": "Payments are settled automatically every day at 08:00 UTC. Transfers to your payout address are processed within four hours. Payments are final and cannot be reversed.",
+    "summary": "",
     "items": [
       {
         "label": "Fishing Miners: ",
-        "value": "Earnings are based on valid shares and paid daily after a 300-block maturity (~5 hours)."
+        "value": "Earnings are based on valid sharenotes and payouts are processed once every 24 hours."
       },
       {
         "label": "Solo Miners: ",
@@ -61,7 +61,7 @@
       },
       {
         "q": "How often are earnings calculated in the Fishing Pool?",
-        "a": "Earnings are calculated in real time based on submitted shares and settled daily after a 300-block maturity (~5 hours)."
+        "a": "Earnings are calculated in real time based on submitted sharenotes and payouts are processed once every 24 hours."
       },
       {
         "q": "How are rewards handled in the Solo Pool?",
@@ -77,7 +77,7 @@
       },
       {
         "q": "What happens if my miner disconnects?",
-        "a": "If your device goes offline, it stops submitting shares or blocks. No rewards are earned until it reconnects."
+        "a": "If your device goes offline, it stops submitting sharenotes. No rewards are earned until it reconnects."
       },
       {
         "q": "When are rewards confirmed and paid?",
