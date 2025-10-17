@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Box, Button, Card } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import MiningDifficulty from '@components/MiningDifficulty';
 import { PRIMARY_BLUE, PRIMARY_GREY, PRIMARY_RED, SECONDARY_GREY_2 } from '@styles/colors';
 import { validateAddress } from '@utils/Utils';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -213,30 +214,8 @@ const MiningPage = () => {
       <StyledCard>
         <Box component="section" sx={{ p: 2 }}>
           <SectionHeader>{t('miningConfiguration.title')}</SectionHeader>
-          <Box component="div" sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}>
-            <Box component="span" sx={{ fontWeight: 'bold', pr: 1, pb: 1 }}>
-              {t('miningConfiguration.usernameFormat')}
-            </Box>
-            <Box>{t('miningConfiguration.usernameFormatValue')}</Box>
-          </Box>
-          <Box component="div" sx={{ mt: 2, mb: 1 }}>
-            <Box component="span" sx={{ fontWeight: 'bold' }}>
-              {t('miningConfiguration.example')}
-            </Box>
-          </Box>
-          <Box
-            component="pre"
-            sx={{
-              whiteSpace: 'pre-wrap',
-              overflow: 'auto',
-              wordBreak: 'normal',
-              bgcolor: '#f5f5f5',
-              padding: 2,
-              borderRadius: 1,
-              fontSize: '0.875rem'
-            }}>
-            {t('miningConfiguration.command', { url: FISHING_POOL_URL })}
-          </Box>
+          {/* Simplified layout: Gauge centered, then selector line, then command line */}
+          <MiningDifficulty poolUrl={FISHING_POOL_URL} />
         </Box>
       </StyledCard>
 

@@ -32,7 +32,10 @@
     "usernameFormat": "用户名格式：",
     "usernameFormatValue": "你的钱包地址.WorkerName",
     "example": "示例（ccminer）：",
-    "command": "ccminer -a scrypt -o {{url}} -u 你的钱包地址.WorkerName -p x"
+    "command": "ccminer -a scrypt -o {{url}} -u 你的钱包地址.WorkerName -p x",
+    "difficultyLabel": "难度",
+    "defaultPassword": "默认 (-p x)",
+    "workerReminder": "别忘了在地址后添加 worker 名称"
   },
   "paymentInstructions": {
     "title": "支付说明",

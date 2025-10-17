@@ -21,10 +21,9 @@
       "@services/*": ["./src/services/*"],
       "@store/*": ["./src/store/*"],
       "@middlewares/*": ["./src/store/middlewares/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@utils/*": ["./src/utils/*"],
-      "@objects/*": ["./src/objects/*"],
       "@constants/*": ["./src/constants/*"],
-      "@interfaces/*": ["./src/objects/interfaces/*"],
       "@styles/*": ["./src/styles/*"]
     }
   },
