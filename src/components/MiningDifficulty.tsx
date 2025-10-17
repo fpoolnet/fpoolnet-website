@@ -120,7 +120,7 @@ const MiningDifficulty: React.FC<MiningDifficultyProps> = ({ poolUrl }) => {
             MenuProps={{ PaperProps: { style: { maxHeight: 320 } } }}>
             {DIFFICULTIES.map((d) => (
               <MenuItem key={d.id} value={d.id}>
-                {d.id} - {formatK(d.difficulty)} ({d.name} )
+                {d.id} - {formatK(d.difficulty)} ({d.name})
               </MenuItem>
             ))}
           </Select>
