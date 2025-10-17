@@ -78,6 +78,7 @@ const MiningDifficulty: React.FC<MiningDifficultyProps> = ({ poolUrl }) => {
                 type: 'outer',
                 ticks: [
                   { value: percentForDiff(1000) },
+                  { value: percentForDiff(500_000) },
                   { value: percentForDiff(1_000_000) },
                   { value: percentForDiff(1_500_000) },
                   { value: percentForDiff(2_000_000) },
